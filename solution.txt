@@ -1,0 +1,212 @@
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~
+$ mkdir GitAssignment1
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~
+$ cd GitAssignment1/
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1
+$ git init
+Initialized empty Git repository in C:/Users/Neosoft/GitAssignment1/.git/
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ notepad file1.txt
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ notepad file2.txt
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ notepad file3.txt
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ git checkout -b Dev
+Switched to a new branch 'Dev'
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git add file1.txt
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git commit -m "file1.txt is added on Dev"
+[Dev (root-commit) fb4d59e] file1.txt is added on Dev
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git status
+On branch Dev
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2.txt
+        file3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git checkout -b Test
+Switched to a new branch 'Test'
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Test)
+$ git add *
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Test)
+$ git status
+On branch Test
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file2.txt
+        new file:   file3.txt
+
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Test)
+$ git commit -m "file2.txt and file3.txt is added on Test"
+[Test c426f23] file2.txt and file3.txt is added on Test
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file2.txt
+ create mode 100644 file3.txt
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Test)
+$ git status
+On branch Test
+nothing to commit, working tree clean
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Test)
+$ ls
+file1.txt  file2.txt  file3.txt
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Test)
+$ git diff
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Test)
+$ ls
+file1.txt  file2.txt  file3.txt
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Test)
+$ git checkout Test
+Already on 'Test'
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Test)
+$ git checkout Dev
+Switched to branch 'Dev'
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git diff
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git status
+On branch Dev
+nothing to commit, working tree clean
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git diff --staged
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git diff Dev Test
+diff --git a/file2.txt b/file2.txt
+new file mode 100644
+index 0000000..282f36d
+--- /dev/null
++++ b/file2.txt
+@@ -0,0 +1 @@
++Im Shubham Phepale
+\ No newline at end of file
+diff --git a/file3.txt b/file3.txt
+new file mode 100644
+index 0000000..349e030
+--- /dev/null
++++ b/file3.txt
+@@ -0,0 +1 @@
++Welcome To Neosoft Technology
+\ No newline at end of file
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git checkout
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git checkout master
+error: pathspec 'master' did not match any file(s) known to git
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git merge Test
+Updating fb4d59e..c426f23
+Fast-forward
+ file2.txt | 1 +
+ file3.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file2.txt
+ create mode 100644 file3.txt
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ ls
+file1.txt  file2.txt  file3.txt
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (Dev)
+$ git checkout -b master
+Switched to a new branch 'master'
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ ls
+file1.txt  file2.txt  file3.txt
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ git merge Dev Test
+Already up to date.
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ git remote add origin https://github.com/shubhamphepale/GitAssignment01.git
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ git remote -v
+origin  https://github.com/shubhamphepale/GitAssignment01.git (fetch)
+origin  https://github.com/shubhamphepale/GitAssignment01.git (push)
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ git push origin master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (7/7), 590 bytes | 147.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/shubhamphepale/GitAssignment01.git
+ * [new branch]      master -> master
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/GitAssignment1 (master)
+$ cd ..
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~
+$ mkdir clonerepo
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~
+$ cd clonerepo
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/clonerepo
+$ git clone https://github.com/shubhamphepale/GitAssignment01.git
+Cloning into 'GitAssignment01'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 7 (delta 0), reused 7 (delta 0), pack-reused 0
+Receiving objects: 100% (7/7), done.
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/clonerepo
+$ ls
+GitAssignment01/
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/clonerepo
+$ cd GitAssignment01/
+
+Neosoft@DESKTOP-4MORGE8 MINGW64 ~/clonerepo/GitAssignment01 (master)
+$ notepad solution.txt
